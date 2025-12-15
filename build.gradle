@@ -25,9 +25,17 @@ repositories {
 
 ext {
 	set('jjwtVersion', '0.11.5')
+	set('springCloudAwsVersion', '3.1.1')
+}
+
+dependencyManagement {
+	imports {
+		mavenBom "io.awspring.cloud:spring-cloud-aws-dependencies:${springCloudAwsVersion}"
+	}
 }
 
 dependencies {
+	implementation 'io.awspring.cloud:spring-cloud-aws-starter-secrets-manager'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
